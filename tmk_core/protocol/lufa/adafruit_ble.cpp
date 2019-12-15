@@ -529,7 +529,7 @@ bool adafruit_ble_enable_keyboard(void) {
     // Make the advertised name match the keyboard
     static const char kGapDevName[] PROGMEM = "AT+GAPDEVNAME=" STR(PRODUCT);
     // Turn on keyboard support
-    static const char kHidEnOn[] PROGMEM = "AT+BLEHIDEN=1";
+    static const char kHidEnOn[] PROGMEM = "AT+BLEKEYBOARDEN=1";
 
     // Adjust intervals to improve latency.  This causes the "central"
     // system (computer/tablet) to poll us every 10-30 ms.  We can't
