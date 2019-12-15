@@ -1,5 +1,6 @@
 /*
-Copyright 2017 Wez Furlong
+Original Copyright 2017 Wez Furlong
+Modified 2019 Jonathan Bettger
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -21,17 +22,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xDEAD
+#define VENDOR_ID       0xBE77
 #define PRODUCT_ID      0x1337
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    JBETT
-#define PRODUCT         KEYBOARD
+#define MANUFACTURER    BETTGER
+#define PRODUCT         JBOARD
 #define DESCRIPTION     TKL MKI
 
 /* key matrix size */
 #define MATRIX_ROWS 2
 #define MATRIX_COLS 2
 #define DIODE_DIRECTION CUSTOM_MATRIX
+
+#define PINS_ROWS {D6, B7}
 
 // We have an Adafruit BLE SPI Friend board attached
 #define AdafruitBleResetPin D2

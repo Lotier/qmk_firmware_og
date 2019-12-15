@@ -1,5 +1,6 @@
 /*
 Copyright 2016-2017 Wez Furlong
+Modified 2019 Jonathan Bettger
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <stdbool.h>
 
 #include "debug.h"
-#include "flutterby.h"
+#include "ble_sx1509.h"
 #include "config.h"
 #include "lib/lufa/LUFA/Drivers/Peripheral/TWI.h"
 #include "matrix.h"
@@ -46,7 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // row4: A4 - PFx
 // row5: A5 - PFx
 // col0-15:   sx1509
-static const uint8_t row_pins[MATRIX_ROWS] = {D6, B7};
+static const uint8_t row_pins[MATRIX_ROWS] = PINS_ROWS;
 #if DEBOUNCING_DELAY > 0
 static bool debouncing;
 static matrix_row_t matrix_debouncing[MATRIX_ROWS];
@@ -97,7 +98,7 @@ void matrix_power_down(void) {
 #include "LUFA/Drivers/Peripheral/ADC.h"
 
 void matrix_power_up(void) {
-  //flutterby_led_enable(true);
+  feather_led_enable(true);
 
   unselect_rows();
 
@@ -112,7 +113,7 @@ void matrix_power_up(void) {
   scan_count = 0;
 #endif
 
-  flutterby_blink_led(3);
+  feather_blink_led(3);
 }
 
 void matrix_init(void) {
@@ -242,19 +243,5 @@ void matrix_print(void) {
     print(": ");
     print_bin_reverse16(matrix_get_row(row));
     print("\n");
-  }
-}
-
-// Controls the Red LED attached to arduino pin 13
-void flutterby_led_enable(bool on) {
-  digitalWrite(C7, on ? PinLevelHigh : PinLevelLow);
-}
-
-void flutterby_blink_led(int times) {
-  while (times--) {
-    _delay_ms(50);
-    flutterby_led_enable(true);
-    _delay_ms(150);
-    flutterby_led_enable(false);
   }
 }

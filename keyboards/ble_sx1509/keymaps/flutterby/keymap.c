@@ -1,4 +1,4 @@
-#include "flutterby.h"
+#include "ble_sx1509.h"
 #include "action_layer.h"
 #include "pincontrol.h"
 #ifdef MOUSEKEY_ENABLE
@@ -130,7 +130,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt) {
     case FNOSTOGGLE:
       if (IS_RELEASED(record->event)) {
         is_mac = !is_mac;
-        flutterby_blink_led(is_mac ? 3 : 1);
+        feather_blink_led(is_mac ? 3 : 1);
       }
       return;
 
@@ -158,14 +158,14 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt) {
         switch (flutterby_thumbstick_get_mode()){
           case ThumbStickMovesPointer:
             flutterby_thumbstick_set_mode(ThumbStickPanning);
-            flutterby_blink_led(2);
+            feather_blink_led(2);
             break;
           case ThumbStickPanning:
             flutterby_thumbstick_set_mode(ThumbStickMovesPointer);
-            flutterby_blink_led(4);
+            feather_blink_led(4);
             break;
           default:
-            flutterby_blink_led(7);
+            feather_blink_led(7);
             break;
         }
       }

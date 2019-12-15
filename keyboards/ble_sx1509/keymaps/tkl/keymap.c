@@ -1,13 +1,10 @@
-#include "flutterby.h"
+#include "ble_sx1509.h"
 #include "action_layer.h"
 #include "pincontrol.h"
 #include <print.h>
 #include <stdio.h>
 #include "adafruit_ble.h"
 #include "outputselect.h"
-#ifdef MOUSEKEY_ENABLE
-#include "mousekey.h"
-#endif
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 enum layer_id {
@@ -93,7 +90,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt) {
     case FNOSTOGGLE:
       if (IS_RELEASED(record->event)) {
         is_mac = !is_mac;
-        flutterby_blink_led(is_mac ? 3 : 1);
+        feather_blink_led(is_mac ? 3 : 1);
       }
       return;
 
@@ -118,16 +115,13 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt) {
   }
 }
 
-void matrix_scan_user(void) {
-  printf("scanning for keys.");
-}
+void matrix_scan_user(void) { }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-void led_set_user(uint8_t usb_led) {
-}
+void led_set_user(uint8_t usb_led) { }
 
 void keyboard_post_init_user(void) {
   // Customise these values to desired behaviour

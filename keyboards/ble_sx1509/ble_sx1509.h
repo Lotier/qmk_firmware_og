@@ -1,5 +1,5 @@
-#ifndef FLUTTERBY_H
-#define FLUTTERBY_H
+#ifndef BLE_SX1509_H
+#define BLE_SX1509_H
 
 #include "quantum.h"
 
@@ -37,7 +37,7 @@ bool sx1509_init(void);
 uint16_t sx1509_read(void);
 bool sx1509_make_ready(void);
 
-void flutterby_led_enable(bool on);
-void flutterby_blink_led(int times);
+void feather_led_enable(bool on);
+void feather_blink_led(int times);
 
 #endif
