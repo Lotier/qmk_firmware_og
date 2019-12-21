@@ -30,11 +30,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DESCRIPTION     TKL MKI
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 2
+#define MATRIX_ROWS 6
+#define MATRIX_COLS 16
 #define DIODE_DIRECTION CUSTOM_MATRIX
 
-#define PINS_ROWS {D6, B7}
+#define PINS_ROWS {D6, B7, B6, B5, D7, C6}
 
 // We have an Adafruit BLE SPI Friend board attached
 #define AdafruitBleResetPin D2

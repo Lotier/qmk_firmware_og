@@ -39,15 +39,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <util/atomic.h>
 #include <string.h>
 
-// The keyboard matrix is attached to the following pins:
-// row0: A0 - PF7
-// row1: A1 - PF6
-// row2: A2 - PFx
-// row3: A3 - PFx
-// row4: A4 - PFx
-// row5: A5 - PFx
-// col0-15:   sx1509
 static const uint8_t row_pins[MATRIX_ROWS] = PINS_ROWS;
+// col0-15:   sx1509
 #if DEBOUNCING_DELAY > 0
 static bool debouncing;
 static matrix_row_t matrix_debouncing[MATRIX_ROWS];
