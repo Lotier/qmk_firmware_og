@@ -42,8 +42,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AdafruitBleIRQPin   F0
 
 // Turn off the mode leds on the BLE module
-#define ADAFRUIT_BLE_ENABLE_MODE_LEDS 1
-#define ADAFRUIT_BLE_ENABLE_POWER_LED 1
+#define ADAFRUIT_BLE_ENABLE_MODE_LEDS 0
+#define ADAFRUIT_BLE_ENABLE_POWER_LED 0
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCING_DELAY 5
